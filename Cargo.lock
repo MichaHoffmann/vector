@@ -2141,7 +2141,7 @@ dependencies = [
  "vector-config-macros",
  "vector-core",
  "vector-lookup",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -3086,7 +3086,7 @@ dependencies = [
  "arc-swap",
  "chrono",
  "dyn-clone",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -3579,6 +3579,12 @@ dependencies = [
  "slab",
  "tokio-io",
 ]
+
+[[package]]
+name = "gcc"
+version = "0.3.55"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8f5f3913fa0bfe7ee1fd8248b6b9f42a5af4b9d65ec2dd2c3c26132b950ecfc2"
 
 [[package]]
 name = "generic-array"
@@ -5959,7 +5965,7 @@ dependencies = [
  "tonic-build 0.10.2",
  "vector-core",
  "vector-lookup",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -8403,6 +8409,27 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5e9f0ab6ef7eb7353d9119c170a436d1bf248eea575ac42d19d12f4e34130831"
 
 [[package]]
+name = "snappy"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "b570b1d39e2fcb136a07e46d15a1fe962ba71c151e4d8d6888f59f1fcd185bb1"
+dependencies = [
+ "libc",
+ "snappy-sys",
+]
+
+[[package]]
+name = "snappy-sys"
+version = "0.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9f873053ef085548b0b924db3aa2ce38d9389fb3be353bf7fcec4ababc99a307"
+dependencies = [
+ "gcc",
+ "libc",
+ "pkg-config",
+]
+
+[[package]]
 name = "socket2"
 version = "0.4.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10010,7 +10037,7 @@ dependencies = [
  "uuid",
  "vector-lib",
  "vector-vrl-functions",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
  "warp",
  "windows-service",
  "wiremock",
@@ -10112,7 +10139,7 @@ dependencies = [
  "vector-config",
  "vector-config-common",
  "vector-config-macros",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -10138,7 +10165,7 @@ dependencies = [
  "vector-config-common",
  "vector-config-macros",
  "vector-core",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -10246,7 +10273,7 @@ dependencies = [
  "vector-config-common",
  "vector-config-macros",
  "vector-lookup",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -10274,7 +10301,7 @@ dependencies = [
  "serde",
  "vector-config",
  "vector-config-macros",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -10303,14 +10330,14 @@ version = "0.1.0"
 dependencies = [
  "clap 4.4.7",
  "vector-vrl-functions",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
 name = "vector-vrl-functions"
 version = "0.1.0"
 dependencies = [
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
 ]
 
 [[package]]
@@ -10330,7 +10357,7 @@ dependencies = [
  "tikv-jemallocator",
  "tracing-subscriber",
  "vector-vrl-functions",
- "vrl",
+ "vrl 0.8.1 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -10344,7 +10371,7 @@ dependencies = [
  "serde",
  "serde-wasm-bindgen",
  "vector-vrl-functions",
- "vrl",
+ "vrl 0.8.1 (git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec)",
  "wasm-bindgen",
 ]
 
@@ -10365,6 +10392,80 @@ name = "vrl"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a8a93ee342590c4df0ff63961d7d76a347e0c7b6e6c0be4c001317ca1ff11b53"
+dependencies = [
+ "aes",
+ "ansi_term",
+ "anymap",
+ "base16",
+ "base64 0.21.5",
+ "bytes 1.5.0",
+ "cbc",
+ "cfb-mode",
+ "cfg-if",
+ "chacha20poly1305",
+ "charset",
+ "chrono",
+ "chrono-tz",
+ "cidr-utils",
+ "codespan-reporting",
+ "community-id",
+ "crypto_secretbox",
+ "csv",
+ "ctr",
+ "data-encoding",
+ "dns-lookup",
+ "dyn-clone",
+ "flate2",
+ "grok",
+ "hex",
+ "hmac",
+ "hostname",
+ "indexmap 2.1.0",
+ "indoc",
+ "itertools 0.11.0",
+ "lalrpop",
+ "lalrpop-util",
+ "md-5",
+ "nom",
+ "ofb",
+ "once_cell",
+ "onig",
+ "ordered-float 4.1.1",
+ "paste",
+ "peeking_take_while",
+ "percent-encoding",
+ "pest",
+ "pest_derive",
+ "prettydiff",
+ "quoted_printable",
+ "rand 0.8.5",
+ "regex",
+ "roxmltree 0.18.1",
+ "rust_decimal",
+ "seahash",
+ "serde",
+ "serde_json",
+ "sha-1",
+ "sha2",
+ "sha3",
+ "snafu",
+ "strip-ansi-escapes",
+ "syslog_loose",
+ "termcolor",
+ "thiserror",
+ "tracing 0.1.40",
+ "uaparser",
+ "url",
+ "utf8-width",
+ "uuid",
+ "woothee",
+ "zstd 0.13.0",
+]
+
+[[package]]
+name = "vrl"
+version = "0.8.1"
+source = "git+https://github.com/MichaHoffmann/vrl.git?branch=mhoffm-add-snappy-codec#3bc8a6a63d97dc8cc6cc11b86caaf5b993d53421"
 dependencies = [
  "aes",
  "ansi_term",
@@ -10429,6 +10530,7 @@ dependencies = [
  "sha2",
  "sha3",
  "snafu",
+ "snappy",
  "strip-ansi-escapes",
  "syslog_loose",
  "termcolor",
